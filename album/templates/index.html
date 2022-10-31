@@ -1,0 +1,50 @@
+{% load static %}
+{% load tamplate_filter %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Space Corp</title>
+</head>
+<body>
+    <table class="styled-table" id="table">
+    <tr>
+        <th>album</th>
+        <th>name<br>   
+            <form method="post">
+            {% csrf_token %}
+            <button name="sorting" value="name">
+            sort
+            </button>
+</form>
+        </th>
+        <th>artist@name<br>
+            <form method="post">
+            {% csrf_token %}
+            <button name="sorting" value="artist__name">
+            sort
+            </button>
+        </form>
+
+        </th>
+        <th>tracks</th>
+    </tr>
+    {% for data in datas %}
+    <tr>
+        <td>{{data.album}}</td>
+        <td>{{data.name}}</td>
+        <td>{{data|get_item:'artist@name' }}</td>
+        <td>{% for track in data.tracks %}
+            {{track}}</br>
+            {% endfor %}</td>
+
+    </tr>
+    {% endfor %}
+
+    </table>
+    <script src="{% static 'js/table.js' %}"></script>
+</body>
+</html>
