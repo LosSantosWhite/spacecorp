@@ -38,6 +38,8 @@
 
 4. Создать базу данных и наполнить таблицу тестовыми значениями
 
+        python manage.py migrate
+
         python manage.py loaddata fixtures.json
 
 5. Запустить локальный сервер
