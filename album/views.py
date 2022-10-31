@@ -12,7 +12,6 @@ class AlbumListView(View):
     def get_context_data(self, sorting_parameter="", **kwargs):
         context = {}
         context["datas"] = self.get_queryset(sorting_parameter)
-        print(context["datas"])
         return context
 
     def get(self, request):

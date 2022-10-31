@@ -11,7 +11,6 @@ class AlbumViewSet(viewsets.ModelViewSet):
     def filter_queryset(self, queryset):
         queryset = super(AlbumViewSet, self).filter_queryset(queryset)
         sorting = self.request.query_params.get("sorting")
-        print(queryset, sorting)
         if sorting:
             queryset = queryset.order_by(f"-{sorting}")
 
