@@ -32,21 +32,25 @@
 
         python3 -m venv venv
 
-3. Установить зависимости.
+3. Активировать виртуальное окружение:
+
+        source venv/bin/activate
+
+4. Установить зависимости.
 
         pip install -r requirements.txt
 
-4. Создать базу данных и наполнить таблицу тестовыми значениями
+5. Создать базу данных и наполнить таблицу тестовыми значениями
 
         python manage.py migrate
 
         python manage.py loaddata fixtures.json
 
-5. Запустить локальный сервер
+6. Запустить локальный сервер
 
         python manage.py runserver
 
-6. Перейти по адресу
+7. Перейти по адресу
 
         http://localhost:8000
 
