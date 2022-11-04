@@ -4,6 +4,6 @@ from django.urls import path, include
 from album.api.v1.api import AlbumViewSet
 
 router = routers.DefaultRouter()
-router.register("v1/albums", AlbumViewSet)
+router.register("v1/albums", AlbumViewSet, "albums")
 
 urlpatterns = router.urls

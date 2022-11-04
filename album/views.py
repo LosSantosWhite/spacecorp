@@ -23,6 +23,8 @@ class AlbumListView(View):
         return render(request, self.template_name, context)
 
     def get_queryset(self, sorting_parameter=""):
-        url = self.request.build_absolute_uri(f"/api/v1/albums/{sorting_parameter}")
+        url = self.request.build_absolute_uri(
+            reverse("albums-list") + f"{sorting_parameter}"
+        )
         request = requests.get(url)
         return request.json()
